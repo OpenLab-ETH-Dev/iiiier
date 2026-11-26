@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="refresh" content="10;url=https://www.iiiier.org/" />
+  <title>IIIIER — Indian Institute of Industry Interaction Education and Research</title>
+  <meta name="description" content="Redirecting to the official IIIIER website." />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Maven Pro", "Segoe UI", Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #1a3a6b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .splash {
+      max-width: 420px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .seal {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.45;
+      letter-spacing: 0.02em;
+      color: #163f7a;
+      max-width: 340px;
+    }
+
+    .loader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 28px;
+      margin-top: 4px;
+    }
+
+    .loader span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #6ea8e0;
+      display: inline-block;
+      animation: bounce 1.2s ease-in-out infinite;
+    }
+
+    .loader span:nth-child(1) { animation-delay: 0s; }
+    .loader span:nth-child(2) { animation-delay: 0.15s; }
+    .loader span:nth-child(3) { animation-delay: 0.3s; }
+    .loader span:nth-child(4) { animation-delay: 0.45s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% {
+        transform: scale(0.75);
+        opacity: 0.45;
+      }
+      40% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+    }
+
+    .countdown {
+      font-size: 14px;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .countdown strong {
+      color: #163f7a;
+    }
+
+    .continue {
+      font-size: 14px;
+      color: #337ab7;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .continue:hover,
+    .continue:focus {
+      border-bottom-color: #337ab7;
+    }
+
+    @media (max-width: 480px) {
+      .seal {
+        width: 150px;
+        height: 150px;
+      }
+
+      .name {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="splash" role="main">
+    <img
+      class="seal"
+      src="images/loading.jpg"
+      alt="IIIIER seal — Indian Institute of Industry Interaction Education and Research"
+      width="180"
+      height="180"
+    />
+
+    <h1 class="name">
+      Indian Institute of Industry Interaction Education and Research
+    </h1>
+
+    <div class="loader" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <p class="countdown">
+      Redirecting to www.iiiier.org in <strong id="seconds">10</strong> seconds
+    </p>
+
+    <a class="continue" href="https://www.iiiier.org/">Continue now</a>
+  </main>
+
+  <script>
+    (function () {
+      var target = "https://www.iiiier.org/";
+      var remaining = 10;
+      var secondsEl = document.getElementById("seconds");
+
+      var tick = setInterval(function () {
+        remaining -= 1;
+        if (remaining <= 0) {
+          clearInterval(tick);
+          window.location.href = target;
+          return;
+        }
+        if (secondsEl) {
+          secondsEl.textContent = String(remaining);
+        }
+      }, 1000);
+
+      setTimeout(function () {
+        window.location.href = target;
+      }, 10000);
+    })();
+  </script>
+</body>
+</html>
